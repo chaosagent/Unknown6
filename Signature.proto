@@ -75,8 +75,8 @@ message Signature {
     SensorInfo sensor_info = 7;
     DeviceInfo device_info = 8;
     Unknown9 unk9 = 9;
-    uint64 unk10 = 10; //actually looks like a negative double
-    uint64 unk20 = 20;
+    int64 unk10 = 10; // These are not doubles; parsing them as double results in a ton of NaNs
+    int64 unk20 = 20; // Same value range as unk10 (both are almost exactly within int32 range.)
     bytes unk22 = 22; // same in all dumps
     uint64 timestamp = 23; // epoch timestamp in ms
     repeated uint32 request_hash = 24; // hashes of each request message
